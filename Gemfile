@@ -30,9 +30,24 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development, :test do
+gem 'materialize-sass'
+
+group :development, :test, :integration do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
+  gem 'byebug'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'bullet' # n+1 query limit
+  gem 'rubocop'
+  gem 'rubocop-checkstyle_formatter'
+end
+
+group :test, :integration do
+  gem 'capybara'
+  gem 'database_cleaner', '~> 1.3.0'
+  gem 'faker'
+  gem 'selenium-webdriver'
+  gem 'shoulda-matchers', require: false
 end
 
 group :development do
