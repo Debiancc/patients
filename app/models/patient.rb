@@ -1,4 +1,5 @@
 class Patient < ApplicationRecord
+  acts_as_paranoid
   include VirtualAttributes
 
   enum gender: %w(no_available male female)

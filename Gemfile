@@ -20,6 +20,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'materialize-sass'
 
+gem "paranoia", github: "rubysherpas/paranoia", branch: "rails5"
+
 group :development, :test, :integration do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
