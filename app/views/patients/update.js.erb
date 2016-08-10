@@ -1,0 +1,7 @@
+<% if @patient.persisted? %>
+Materialize.toast('Update successful.', 4000);
+$('#global-modal').closeModal();
+$('#js-table').html('<%=j render partial: 'patients/table',locals: {patients: Patient.all} %>');
+<% else %>
+<%= render_modal partial: 'form', locals: { patient: @patient } %>
+<% end %>

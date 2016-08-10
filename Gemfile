@@ -22,6 +22,8 @@ gem 'materialize-sass'
 
 gem "paranoia", github: "rubysherpas/paranoia", branch: "rails5"
 
+gem 'simple_form'
+
 group :development, :test, :integration do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -38,6 +40,7 @@ group :test, :integration do
   gem 'faker'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', require: false
+  gem 'rails-controller-testing'
 end
 
 group :development do

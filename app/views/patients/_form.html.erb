@@ -1,0 +1,61 @@
+<div class="modal-content">
+  <h4>Modal Header</h4>
+  <%= simple_form_for(patient, remote: true) do |f| %>
+      <div class="row">
+        <%= simple_form_for(patient, html: {class: 'col s12'}, remote: true) do |f| %>
+            <div class="row">
+              <%= f.input :first_name, input_html: {length: 30}, wrapper_html: {class: 'input-field col s4'} %>
+              <%= f.input :middle_name, input_html: {length: 10}, wrapper_html: {class: 'input-field col s4'} %>
+              <%= f.input :last_name, input_html: {length: 30}, wrapper_html: {class: 'input-field col s4'} %>
+            </div>
+            <div class="row">
+              <div class="input-field col s6">
+                <%= f.select :location_id, options_for_select(Location.all.map { |s| [s.name, s.id] }) %>
+                <%= f.label :location %>
+              </div>
+              <div class="input-field col s6">
+                <%= f.select :status, Patient.statuses.keys.to_a %>
+                <%= f.label :status %>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col s6">
+                <%= f.label :gender %>
+                <br/>
+                <% Patient.genders.keys.to_a.each do |x| %>
+                    <%= f.radio_button :gender, x %>
+                    <%= f.label :gender, x.humanize.titleize, value: x %>
+                <% end %>
+              </div>
+              <div class="col s6">
+                <%= f.label :birthday %>
+                <%= f.text_field :birthday, {type: 'date', class: 'datepicker'} %>
+              </div>
+            </div>
+        <% end %>
+        <%= f.button :button, {class: 'btn waves-effect waves-light right'} do %>
+            Submit
+            <i class="material-icons right">send</i>
+        <% end %>
+      </div>
+  <% end %>
+</div>
+<!--<div class="modal-footer">-->
+<!--<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Submit</a>-->
+<!--</div>-->
+<script type="text/javascript" charset="utf-8">
+  $('#global-modal')
+      .find('[length]').characterCounter().end()
+      .find(':radio:first').attr('checked', true).end()
+      .find('select').material_select();
+
+  $('.datepicker').pickadate({
+    selectMonths: true,
+    selectYears: 100,
+    max: true,
+    container: 'body'
+  });
+
+  Materialize.updateTextFields();
+</script>

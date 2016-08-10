@@ -1,0 +1,18 @@
+<h4 class="head">
+  <%= @location.name %>
+  <small>Detail</small>
+</h4>
+<div class="row">
+  <div class="col s12">
+    <div class="row">
+      <%= simple_form_for @location do |f| %>
+          <%= f.input :name, input_html: {disabled: true}, wrapper_html: {class: 'input-field col s6'} %>
+          <%= f.input :code, input_html: {disabled: true}, wrapper_html: {class: 'input-field col s6'} %>
+      <% end %>
+      <%= render partial: 'patients/table', locals: {patients: @location.patients} %>
+    </div>
+  </div>
+</div>
+<script type="text/javascript" charset="utf-8">
+  Materialize.updateTextFields();
+</script>

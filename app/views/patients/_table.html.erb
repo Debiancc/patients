@@ -1,0 +1,33 @@
+<table>
+  <thead>
+  <tr>
+    <th>MR</th>
+    <th>Full name</th>
+    <th>Current age</th>
+    <th>Gender</th>
+    <th>Status</th>
+    <th>Location name</th>
+    <th>Viewed count</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% patients.each do |patient| %>
+      <tr>
+        <td>
+          <%= link_to patient.medical_record_number, edit_patient_path(patient), remote: true %>
+        </td>
+        <td><%= patient.full_name %></td>
+        <td><%= patient.current_age %></td>
+        <td><%= patient.gender %></td>
+        <td><%= patient.status %></td>
+        <td>
+          <%= link_to patient.location.name, location_path(patient.location) %>
+        </td>
+        <td><%= patient.viewed_count %></td>
+        <td><%= link_to 'Destroy', patient, method: :delete, remote: true, data: {confirm: 'Are you sure?'} %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

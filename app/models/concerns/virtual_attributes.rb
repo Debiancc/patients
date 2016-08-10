@@ -10,6 +10,7 @@ module VirtualAttributes
   end
 
   def current_age
+    return '' if self.birthday.nil?
     value = Time.now.year - self.birthday.year
     value = 0 if value < 0
     value

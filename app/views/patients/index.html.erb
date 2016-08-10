@@ -1,0 +1,5 @@
+<h2 class="head">Patients</h2>
+<%= link_to 'New Patient', new_patient_path, remote: true %>
+<div id="js-table">
+  <%= render partial: 'table',locals: {patients: @patients} %>
+</div>
