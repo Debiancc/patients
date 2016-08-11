@@ -14,7 +14,7 @@
                 <%= f.label :location %>
               </div>
               <div class="input-field col s6">
-                <%= f.select :status, Patient.statuses.keys.to_a %>
+                <%= f.select :status, enum_to_options(Patient.statuses, 'patient.status') %>
                 <%= f.label :status %>
               </div>
             </div>
@@ -25,7 +25,7 @@
                 <br/>
                 <% Patient.genders.keys.to_a.each do |x| %>
                     <%= f.radio_button :gender, x %>
-                    <%= f.label :gender, x.humanize.titleize, value: x %>
+                    <%= f.label :gender, enum_to_human(x, 'patient.gender'), value: x %>
                 <% end %>
               </div>
               <div class="col s6">
@@ -35,15 +35,13 @@
             </div>
         <% end %>
         <%= f.button :button, {class: 'btn waves-effect waves-light right'} do %>
-            Submit
+            <%= t('_.submit') %>
             <i class="material-icons right">send</i>
         <% end %>
       </div>
   <% end %>
 </div>
-<!--<div class="modal-footer">-->
-<!--<a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Submit</a>-->
-<!--</div>-->
+
 <script type="text/javascript" charset="utf-8">
   $('#global-modal')
       .find('[length]').characterCounter().end()

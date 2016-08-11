@@ -2,13 +2,27 @@
 //$primary-color: color("cyan", "lighten-2") !default;
 @import 'materialize';
 
-//Hook when select-wrapper behind label doesn't work
-label + .select-wrapper {
-  position: absolute;
-  top: -14px;
-  font-size: 0.8rem;
-}
-
 span.error {
   color: #c00;
+}
+
+body {
+  overflow-x: hidden;
+  .header {
+    margin-left: 300px;
+    .nav-wrapper {
+      margin-left: -300px;
+    }
+  }
+  .container, footer {
+    margin-left: 350px;
+  }
+}
+
+
+
+@media only screen and (max-width: 992px) {
+  .header, .container, footer {
+    margin-left: 0;
+  }
 }

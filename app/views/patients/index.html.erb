@@ -1,5 +1,7 @@
-<h2 class="head">Patients</h2>
-<%= link_to 'New Patient', new_patient_path, remote: true %>
+<h2 class="head">
+  Patients
+  <small style="font-size:14px;"><%= link_to t('view.patient.index.new_patient'), new_patient_path, remote: true %></small>
+</h2>
 <div id="js-table">
-  <%= render partial: 'table',locals: {patients: @patients} %>
+  <%= render partial: 'table', locals: {patients: @patients} %>
 </div>

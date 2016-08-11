@@ -2,12 +2,12 @@
   <thead>
   <tr>
     <th>MR</th>
-    <th>Full name</th>
-    <th>Current age</th>
-    <th>Gender</th>
-    <th>Status</th>
-    <th>Location name</th>
-    <th>Viewed count</th>
+    <th><%= t('view.patient.index.full_name') %></th>
+    <th><%= t('view.patient.index.current_age') %></th>
+    <th><%= t('view.patient.index.gender') %></th>
+    <th><%= t('view.patient.index.status') %></th>
+    <th><%= t('view.patient.index.location') %></th>
+    <th><%= t('view.patient.index.viewed_count') %></th>
     <th></th>
   </tr>
   </thead>
@@ -20,13 +20,13 @@
         </td>
         <td><%= patient.full_name %></td>
         <td><%= patient.current_age %></td>
-        <td><%= patient.gender %></td>
-        <td><%= patient.status %></td>
+        <td><%= enum_to_human(patient.gender, 'patient.gender') %></td>
+        <td><%= enum_to_human(patient.status, 'patient.status') %></td>
         <td>
           <%= link_to patient.location.name, location_path(patient.location) %>
         </td>
         <td><%= patient.viewed_count %></td>
-        <td><%= link_to 'Destroy', patient, method: :delete, remote: true, data: {confirm: 'Are you sure?'} %></td>
+        <td><%= link_to t('_.destroy'), patient, method: :delete, remote: true, data: {confirm: 'Are you sure?'} %></td>
       </tr>
   <% end %>
   </tbody>

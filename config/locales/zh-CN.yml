@@ -1,0 +1,89 @@
+zh-CN:
+  activerecord:
+      attributes:
+        patient:
+          first_name: 姓
+          middle_name: 辈
+          last_name: 名
+          gender: 性别
+          status: 状态
+          birthday: 生日
+          location: 位置
+        location:
+          name: 名称
+          code: 编号
+  enum:
+    patient:
+      status:
+        initial: 住院
+        referred: 诊断
+        treatment: 疗程
+        closed: 结束
+      gender:
+        male: 男
+        female: 女
+        no_available: 未知
+
+  _:
+    detail: 详细
+    destroy: 删除
+    submit: 提交
+    create_successfuly: 创建成功
+    update_successfuly: 更新成功
+    destroy_successfuly: 删除成功
+
+  view:
+    patient:
+      index:
+        full_name: 全名
+        current_age: 年龄
+        gender: 性别
+        status: 状态
+        location: 位置
+        viewed_count: 查看次数
+        new_patient: 添加新病人
+
+  errors:
+    format: "%{attribute}%{message}"
+    messages:
+      accepted: 必须是可被接受的
+      blank: 不能为空字符
+      present: 必须是空白
+      confirmation: 与确认值不匹配
+      empty: 不能留空
+      equal_to: 必须等于 %{count}
+      even: 必须为双数
+      exclusion: 是保留关键字
+      greater_than: 必须大于 %{count}
+      greater_than_or_equal_to: 必须大于或等于 %{count}
+      inclusion: 不包含于列表中
+      invalid: 是无效的
+      less_than: 必须小于 %{count}
+      less_than_or_equal_to: 必须小于或等于 %{count}
+      not_a_number: 不是数字
+      not_an_integer: 必须是整数
+      odd: 必须为单数
+      record_invalid: '验证失败: %{errors}'
+      restrict_dependent_destroy:
+        one: 由于 %{record} 需要此记录，所以无法移除记录
+        many: 由于 %{record} 需要此记录，所以无法移除记录
+      taken: 已经被使用
+      too_long:
+        one: 过长（最长为一个字符）
+        other: 过长（最长为 %{count} 个字符）
+      too_short:
+        one: 过短（最短为一个字符）
+        other: 过短（最短为 %{count} 个字符）
+      wrong_length:
+        one: 长度非法（必须为一个字符）
+        other: 长度非法（必须为 %{count} 个字符）
+      other_than: 长度非法（不可为 %{count} 个字符
+      has_one_investor: 只可有一个投资人
+      fill_in_necessary_fields: 请填写必要的字段！
+    template:
+      body: 如下字段出现错误：
+      header:
+        one: 有 1 个错误发生导致「%{model}」无法被保存。
+        other: 有 %{count} 个错误发生导致「%{model}」无法被保存。
+
+

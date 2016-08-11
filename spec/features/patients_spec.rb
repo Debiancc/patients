@@ -4,13 +4,14 @@ RSpec.describe "Patients", type: :feature, js: true do
   def get_index
     visit patients_path
     expect(page).to have_http_status(200)
-    expect(page).to have_content('New Patient')
+    expect(page).to have_content('Patients')
     expect(page).to have_selector('tr', count: 1)
   end
 
   def create_patient
-    click_link('New Patient')
+    click_link('New patient')
     expect(page).to have_http_status(200)
+
     within('#new_patient') do
       fill_in('patient[first_name]', with: '1')
       fill_in('patient[middle_name]', with: '2')
@@ -47,14 +48,12 @@ RSpec.describe "Patients", type: :feature, js: true do
   before(:each) do
     @location = create :location
   end
-  describe "the patient process" do
-    it do
-      get_index
-      create_patient
-      update_patient
-      validate_location
-      destroy
-      get_index
-    end
+  it 'the patient process' do
+    get_index
+    create_patient
+    update_patient
+    validate_location
+    destroy
+    get_index
   end
 end
