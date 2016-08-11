@@ -17,6 +17,14 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'capybara/rspec'
+require 'capybara/poltergeist'
+Capybara.register_driver :poltergeist do |app|
+  options = { js_errors: false, timeout: 60, phantomjs_logger: StringIO.new, logger: nil, phantomjs_options: ['--load-images=no', '--ignore-ssl-errors=yes'], window_size: [1920, 1200] }
+  Capybara::Poltergeist::Driver.new(app, options)
+end
+Capybara.javascript_driver = :poltergeist
+Capybara.default_driver = :poltergeist
+Capybara.default_max_wait_time = 5
 
 RSpec.configure do |config|
   # config.include Rails.application.routes.url_helpers

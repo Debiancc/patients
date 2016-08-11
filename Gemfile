@@ -41,6 +41,7 @@ group :test, :integration do
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', require: false
   gem 'rails-controller-testing'
+  gem 'poltergeist'
 end
 
 group :development do

@@ -1,2 +1,2 @@
 Materialize.toast('Delete successful.', 4000);
-$('#js-table').html('<%=j render partial: 'patients/table' %>');
+$('#js-table').html('<%=j render partial: 'patients/table',locals:{patients: Patient.all} %>');
