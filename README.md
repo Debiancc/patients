@@ -1,4 +1,4 @@
 # README
-rake db:setup
+rake db:setup </br>
 rails s
 
